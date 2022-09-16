@@ -6,9 +6,6 @@ K = int(input())
 stack = []
 for i in range(K):
     num = int(input())
-    if num:
-        stack.append(num)
-    else:
-        stack.pop()
+    stack.append(num) if num else stack.pop()
 
 print(sum(stack))
