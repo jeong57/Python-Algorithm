@@ -1,15 +1,8 @@
-import sys
-input = sys.stdin.readline
-
-
-def bfs(v):
-    q = [v]
-    while q:
-        v = q.pop()
-        for w in range(N+1):
-            if w in adj[v] and relation[w] == 0:
-                relation[w] = relation[v] + 1
-                q.append(w)
+def dfs(v):
+    for w in adj[v]:
+        if relation[w] == 0:
+            relation[w] = relation[v] + 1
+            dfs(w)
 
 
 N = int(input())    # N: 전체 사람의 수
@@ -22,8 +15,5 @@ for _ in range(M):
     adj[y].append(x)
 
 relation = [0] * (N+1)  # 촌수 계산
-bfs(a)
-if relation[b]:
-    print(relation[b])
-else:
-    print(-1)
+dfs(a)
+print(relation[b] if relation[b] else -1)
