@@ -1,4 +1,2 @@
 N = int(input())
-arr = list(map(int, input().split()))
-arr = sorted(list(set(arr)))
-print(*arr)
+print(*sorted(list(set(list(map(int, input().split()))))))
